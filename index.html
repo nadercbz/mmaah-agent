@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Daebak · Mmaah Marketing Agent</title><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#fcfaf7"><link rel="icon" href="marke/daebak_96.png">
+<style>
+@font-face{font-family:Archivo;src:url(fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:Geist;src:url(fonts/geist.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/geist-mono.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/geist-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{--o:#ff4005;--o2:#d93600;--os:#fff0e8;--p:#4f0423;--b:#3b8bff;--g:#fde233;--gruen:#1f9d55;--gelb:#d4a106;
+ --bg:#fcfaf7;--pan:#fff;--ink:#1d1418;--ink2:#6b6064;--ink3:#a1969a;--line:#ece5e0;--line2:#ddd3cc;--soft:#f5f1ed;--bar0:#e9e2dd;
+ --sh:0 1px 2px rgba(29,20,24,.04);--sh2:0 12px 32px -14px rgba(29,20,24,.22);--w:1200px;--px:clamp(16px,3vw,32px)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Geist,system-ui,sans-serif;padding-bottom:calc(72px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}a{color:inherit}
+h1,h2,h3{margin:0}
+.mono{font:400 11.5px/1.4 "Geist Mono",monospace}
+:focus-visible{outline:2px solid var(--b);outline-offset:2px;border-radius:6px}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--d,var(--ink3));flex:none}
+.innen{max-width:var(--w);margin:0 auto;padding:0 var(--px)}
+
+/* Kopf */
+.kopf{padding-top:clamp(22px,3.4vw,40px);padding-bottom:4px}
+.wer-ist{display:flex;align-items:center;gap:14px}
+.wer-ist img{width:48px;height:48px;flex:none}
+.wer-ist h1{font:700 clamp(24px,3vw,30px)/1.05 Archivo;letter-spacing:-.03em}
+.wer-ist p{margin:3px 0 0;color:var(--ink2);font-size:13.5px}
+[hidden]{display:none!important}
+.zu-intern{margin-left:auto;flex:none;display:inline-flex;align-items:center;height:32px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--pan);font:500 13px Geist;text-decoration:none;box-shadow:var(--sh);white-space:nowrap;transition:border-color .12s,background .12s}
+.zu-intern:hover{border-color:var(--line2);background:var(--soft)}
+@media(max-width:620px){.wer-ist{flex-wrap:wrap}.zu-intern{margin-left:62px}}
+.leiste{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:22px 0 0}
+.kz{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:96px;padding:13px 15px;background:var(--pan);border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh);transition:border-color .15s,transform .15s,box-shadow .15s}
+.kz:hover{border-color:var(--line2);transform:translateY(-1px);box-shadow:var(--sh2)}
+.kz:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+.kz span{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink2);line-height:1.3}
+.kz b{font:600 30px/1 Archivo;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kz.warn b{color:var(--o)}
+
+/* Navigation */
+nav{position:fixed;z-index:30;left:0;right:0;bottom:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom)}
+nav button{background:none;border:0;color:var(--ink3);padding:11px 2px 10px;font:500 12px/1 Geist;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
+nav button:before{content:"";width:5px;height:5px;border-radius:50%;background:transparent}
+nav button[aria-current=page]{color:var(--ink);font-weight:600}
+nav button[aria-current=page]:before{background:var(--o)}
+nav i{font-style:normal;position:absolute;top:5px;left:calc(50% + 12px);background:var(--o);color:#fff;border-radius:99px;font:600 10px/16px Geist;padding:0 5px;min-width:16px}
+@media(min-width:900px){
+ body{padding-bottom:0}
+ nav{position:sticky;top:0;bottom:auto;display:block;background:rgba(252,250,247,.86);border-top:0;border-bottom:1px solid var(--line);padding:10px 0}
+ nav .seg{display:inline-flex;gap:2px;background:var(--soft);padding:3px;border-radius:10px}
+ nav button{flex-direction:row;padding:0 14px;height:32px;border-radius:8px;font-size:13.5px;color:var(--ink2);gap:8px}
+ nav button:before{display:none}
+ nav button:hover{color:var(--ink)}
+ nav button[aria-current=page]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(29,20,24,.1)}
+ nav i{position:static;font-size:10.5px;line-height:17px}
+}
+@media(max-width:899px){nav .innen,nav .seg{display:contents}}
+
+main{padding-top:clamp(20px,3vw,32px);padding-bottom:48px}
+.h{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:0 0 18px}
+.h h2{font:700 clamp(22px,2.6vw,28px)/1.1 Archivo;letter-spacing:-.025em}
+.hin{color:var(--ink2);font-size:13.5px;max-width:70ch;margin:6px 0 0}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 16px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--pan);color:var(--ink2);border-radius:99px;padding:6px 12px;font:500 13px/1 Geist;cursor:pointer;display:inline-flex;gap:6px;align-items:center;transition:border-color .12s,background .12s}
+.chip small{font:400 11px "Geist Mono",monospace;color:var(--ink3)}
+.chip:hover{border-color:var(--line2)}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}.chip[aria-pressed=true] small{color:#cfc6ca}
+.wer{display:flex;align-items:center;gap:10px;background:var(--pan);border:1px solid var(--line);border-radius:12px;padding:8px 8px 8px 14px;font-size:13px;color:var(--ink2);margin-bottom:14px;max-width:460px}
+.wer input{flex:1;min-width:120px;border:0;background:var(--soft);border-radius:8px;height:34px;padding:0 12px;font-weight:500;color:var(--ink);outline:0}
+.wer input:focus{box-shadow:0 0 0 3px var(--os)}
+
+/* Beiträge */
+.bons{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px;align-items:start}
+.bon{background:var(--pan);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh);animation:rein .4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*30ms);transition:box-shadow .2s,border-color .2s}
+.bon:hover{box-shadow:var(--sh2);border-color:var(--line2)}
+@keyframes rein{from{opacity:0;transform:translateY(8px)}}
+.medien{background:var(--soft);display:flex;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.medien video,.medien img{display:block;max-width:100%;max-height:420px;height:auto}
+.leer{width:100%;padding:18px 16px;color:var(--ink2);font-size:13px;background:repeating-linear-gradient(135deg,var(--soft) 0 10px,#f0ebe6 10px 20px)}
+.leer b{display:flex;align-items:center;gap:7px;font-weight:600;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+.leer ul{margin:0;padding-left:16px}
+.kb{padding:14px 16px 16px}
+.bonkopf{display:flex;justify-content:space-between;color:var(--ink3);margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.serie{display:inline-block;background:var(--soft);color:var(--ink);font:500 11.5px/1 Geist;padding:5px 8px;border-radius:6px;letter-spacing:.01em}
+.tags .mono{color:var(--ink3)}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--ink2)}
+.status:before{content:"";width:7px;height:7px;background:var(--f,#999);border-radius:var(--rd,50%)}
+.tags .status{margin-left:auto}
+.hook{font:600 17px/1.3 Geist;letter-spacing:-.01em;margin:12px 0 8px;color:var(--ink)}
+.ok{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--gruen);background:#eaf6ef;border-radius:8px;padding:6px 10px;margin:0 0 10px}
+.ok.neu{color:#2463c4;background:#eaf2ff}
+.cap{font-size:13.5px;margin:0 0 10px;white-space:pre-line;color:var(--ink2)}
+.hint{font-size:12.5px;background:#fdf7dc;padding:8px 10px;border-radius:8px;margin:0 0 10px;color:#5c4a0c}
+.alt{font-size:12.5px;color:var(--ink3);margin:0 0 10px}
+details summary{cursor:pointer;font-size:12.5px;font-weight:500;color:var(--ink2);list-style:none;display:inline-flex;align-items:center;gap:6px}
+details summary::-webkit-details-marker{display:none}
+details summary:before{content:"+";font:500 13px/1 "Geist Mono";color:var(--ink3)}
+details[open] summary:before{content:"–"}
+.knopf{display:flex;gap:8px;margin-top:14px}
+.btn{border:0;cursor:pointer;padding:0 14px;height:40px;border-radius:10px;font:600 13.5px/1 Geist;flex:1;transition:background .15s,box-shadow .15s}
+.btn.ja{background:var(--o);color:#fff}.btn.ja:hover{background:var(--o2)}
+.btn.nein{background:var(--pan);box-shadow:inset 0 0 0 1px var(--line2);color:var(--ink)}.btn.nein:hover{background:var(--soft)}
+.btn:focus-visible,.chip:focus-visible,nav button:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+
+/* Plan */
+.woche{margin-bottom:22px}.woche h3{font:500 12px/1 Geist;letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px;color:var(--ink3)}
+.tage{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.tagb{background:var(--pan);border:1px solid var(--line);border-radius:12px;padding:10px 11px;text-align:left;cursor:pointer;min-height:140px;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,box-shadow .15s,transform .15s}
+.tagb:hover{border-color:var(--line2);box-shadow:var(--sh2);transform:translateY(-1px)}
+.tagb small{color:var(--ink3);font:400 11px/1.35 "Geist Mono",monospace}
+.tagb b{font:500 13px/1.35 Geist;color:var(--ink);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.tagb .status{margin-top:auto;font-size:11.5px}
+@media(max-width:820px){.tage{grid-template-columns:1fr}.tagb{min-height:0}}
+
+/* Eröffnung */
+.stadt{background:var(--pan);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.4vw,26px);margin-bottom:14px;box-shadow:var(--sh)}
+.stadt h2{font:700 clamp(30px,4.2vw,44px)/1.02 Archivo;letter-spacing:-.035em}
+.stadt p{margin:8px 0 0;color:var(--ink2)}
+.stadt .warn{color:var(--o2);font-weight:600}
+.fort{height:6px;background:var(--soft);border-radius:99px;margin:14px 0 0;overflow:hidden}.fort i{display:block;height:100%;background:var(--o);border-radius:99px;min-width:6px}
+.meldung{display:flex;gap:10px;align-items:flex-start;background:#fdf7dc;color:#5c4a0c;padding:9px 12px;border-radius:10px;font-size:13px;margin:0 0 8px}
+.meldung:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gelb);margin-top:6px;flex:none}
+.zw{font:600 15px/1.3 Geist;margin:22px 0 10px}
+.wand{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:0 0 8px}
+.wand button{padding:0;border:0;background:none;cursor:zoom-in;display:block;border-radius:6px;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.wand button:hover{transform:translateY(-2px);box-shadow:var(--sh2)}
+.wand img{width:100%;display:block;aspect-ratio:420/594;object-fit:cover;background:var(--soft)}
+.mini4 img{aspect-ratio:auto;object-fit:contain}.spalten{display:grid;gap:26px;margin-top:10px}@media(min-width:900px){.spalten{grid-template-columns:330px 1fr}}
+.spalten video{width:100%;display:block;margin-bottom:8px;background:var(--soft);border-radius:10px}
+.aufg{list-style:none;margin:0;padding:0;background:var(--pan);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.aufg li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:11px 14px;border-top:1px solid var(--line)}
+.aufg li:first-child{border-top:0}
+.aufg input{width:18px;height:18px;accent-color:var(--o);margin:1px 0 0}.aufg .mono{color:var(--ink3)}
+.aufg li.fertig>div>p{text-decoration:line-through;color:var(--ink3)}.aufg p{margin:0 0 5px;font-size:13.5px}
+.art{display:inline-block;font:500 10.5px/1 Geist;padding:3px 6px;margin-right:8px;border-radius:5px;background:var(--soft);color:var(--ink2)}
+.art.agent{background:#eaf2ff;color:#2463c4}.art.mensch{background:var(--os);color:var(--o2)}.art.freigabe{background:#fdf7dc;color:#7a6208}
+.ph{font:500 12px/1 Geist;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin:18px 0 8px}
+.ph:first-of-type{margin-top:4px}
+.reihe{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 14px}
+.reihe a{font-size:12.5px;font-weight:500;text-decoration:none;color:var(--ink2);border-bottom:1px solid var(--line2)}
+.reihe a:hover{color:var(--o2);border-color:var(--o)}
+
+/* Zahlen */
+.kz3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.kz3 div{background:var(--pan);border:1px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:var(--sh)}
+.kz3 b{display:block;font:600 28px/1 Archivo;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-bottom:8px}
+.kz3 span{font-size:12.5px;color:var(--ink2)}
+@media(max-width:620px){.kz3{grid-template-columns:1fr}.leiste{grid-template-columns:repeat(2,minmax(0,1fr))}.leiste .kz:last-child{grid-column:1/-1}}
+@media(min-width:621px) and (max-width:899px){.leiste{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.grid2{display:grid;gap:16px}@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}}
+.tafel{background:var(--pan);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--sh)}
+.tafel h3{font:600 15px/1.35 Geist;letter-spacing:-.005em;margin-bottom:3px;color:var(--ink)}
+.tafel p{margin:0 0 12px;color:var(--ink3);font-size:12.5px}
+.vbars{display:flex;align-items:flex-end;gap:3px;height:170px;border-bottom:1px solid var(--line);margin-top:22px}
+.vbars div{flex:1;background:var(--bar0);border-radius:4px 4px 0 0;position:relative;min-width:0;outline:0;transition:filter .12s}
+.vbars div.an{background:var(--o)}.vbars div:hover,.vbars div:focus{filter:brightness(.92)}
+.vbars u{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);text-decoration:none;font:500 11px "Geist Mono";padding-bottom:3px;white-space:nowrap;color:var(--ink)}
+.xachse{display:flex;gap:3px;margin-top:6px}.xachse span{flex:1;text-align:center;font:400 10.5px "Geist Mono";color:var(--ink3);min-width:0}
+.hbar{display:grid;grid-template-columns:128px 1fr 40px;gap:10px;align-items:center;margin:8px 0;font-size:13px;color:var(--ink2)}
+.hbar i{display:block;height:10px;background:var(--bar0);border-radius:0 4px 4px 0;min-width:2px}.hbar.an i{background:var(--o)}.hbar.an span{color:var(--ink);font-weight:500}.hbar b{font:500 12px "Geist Mono";text-align:right;color:var(--ink)}
+.tab{width:100%;border-collapse:collapse;font-size:13px}.tab th{text-align:left;font:500 11.5px Geist;color:var(--ink3);padding:8px 10px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}.tab td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);white-space:nowrap}.tab tr:last-child td{border-bottom:0}.tab td.r,.tab th.r{text-align:right;font-family:"Geist Mono";font-size:12px}
+.scroll{overflow-x:auto}
+.mini{display:inline-block;height:6px;background:var(--o);border-radius:0 3px 3px 0;vertical-align:middle;margin-right:8px}
+.tip{position:fixed;z-index:50;background:var(--ink);color:#fff;padding:5px 9px;border-radius:6px;font:500 12px "Geist Mono";pointer-events:none;display:none;transform:translate(-50%,-115%);white-space:nowrap}
+
+/* Offen */
+.grp{display:flex;align-items:center;gap:8px;font:500 12px/1 Geist;letter-spacing:.05em;text-transform:uppercase;margin:22px 0 8px;color:var(--ink3)}
+.liste{background:var(--pan);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.frage{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:12px 14px;border-top:1px solid var(--line);cursor:pointer;transition:background .12s}
+.frage:first-child{border-top:0}
+.frage:hover{background:var(--soft)}
+.frage input[type=checkbox]{width:18px;height:18px;accent-color:var(--o);margin:2px 0 0}
+.frage p{margin:0;font-weight:500}.frage small{color:var(--ink3);display:block;margin-top:3px;font-size:12.5px}
+.frage:has(input:checked) p{color:var(--ink3);text-decoration:line-through}
+dialog{border:0;padding:0;background:var(--bg);max-width:min(96vw,760px);max-height:92vh;border-radius:16px;box-shadow:0 30px 80px rgba(29,20,24,.3)}dialog::backdrop{background:rgba(29,20,24,.45);backdrop-filter:blur(3px)}
+dialog img{max-width:100%;max-height:88vh;display:block;margin:0 auto}
+.zu{position:sticky;top:10px;float:right;margin:10px 10px 0 0;width:34px;height:34px;border-radius:50%;background:var(--pan);color:var(--ink);border:1px solid var(--line);font-size:18px;line-height:1;cursor:pointer;z-index:3;box-shadow:var(--sh)}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:13.5px;z-index:60;max-width:92vw;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+@media(min-width:900px){.toast{bottom:28px}}
+.vorschau{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--pan);border-bottom:1px solid var(--line);color:var(--ink2);font-size:12.5px;padding:7px 16px;text-align:center}
+.vorschau:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--b);flex:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div id="vorschau"></div>
+<header class="kopf innen">
+ <div class="wer-ist"><img src="marke/daebak_96.png" alt=""><div><h1>Daebak</h1><p>Marketing Agent von Mmaah. Bereitet alles vor, nichts geht ohne Freigabe raus.</p></div><a id="zuIntern" class="zu-intern" href="/#start" target="_top" hidden>Alle Fotos, Videos und Dateien →</a></div>
+ <div class="leiste" id="leiste"></div>
+</header>
+<nav id="nav" aria-label="Bereiche"></nav>
+<main id="m" class="innen"></main>
+<div class="tip" id="tip"></div>
+<dialog id="dlg"><button class="zu" onclick="dlg.close()" aria-label="Schließen">×</button><div id="dlgi"></div></dialog>
+<script src="daten.js" onerror="void 0"></script>
+<script>
+const STATIC=!!window.STAND;let S=window.STAND||null;const F=STATIC?'f/':'/f/';
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pfad=p=>F+String(p).split('/').map(encodeURIComponent).join('/');
+const zahl=n=>Number(n).toLocaleString('de-DE');
+const TAB=[['pass','Pass'],['plan','Plan'],['eroeffnung','Eröffnung'],['zahlen','Zahlen'],['offen','Offen']];
+const STATUS={freigabe:['Wartet auf Freigabe','#ff4005','50%'],freigegeben:['Freigegeben','#1f9d55','50%'],skript:['Dreh fehlt','#3b8bff','50%'],wartet:['Wartet auf Daten','#d4a106','50%'],ueberarbeiten:['Überarbeiten','#3b8bff','2px'],geplant:['Geplant','#1f9d55','2px'],live:['Live','#1d1418','50%'],idee:['Idee','#a1969a','50%'],produktion:['In Arbeit','#a1969a','2px'],pruefung:['In Prüfung','#a1969a','2px']};
+let tab=location.hash.slice(1)||'pass',filt='freigabe',stadt=0;
+if(!TAB.some(t=>t[0]===tab))tab='pass';
+function name(){return localStorage.getItem('mm-wer')||''}
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.append(e);setTimeout(()=>e.remove(),2600)}
+async function laden(){if(!STATIC){S=await(await fetch('/api/stand')).json()}zeichne()}
+async function post(u,d){if(STATIC){toast('Vorschau: Nichts wird gespeichert.');return null}const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});if(!r.ok){toast('Hat nicht geklappt.');return null}return r.json()}
+function datum(d){const t=new Date(d+'T12:00');return t.toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'})}
+function st(s){const x=STATUS[s]||STATUS.idee;return `<span class="status" style="--f:${x[1]};--rd:${x[2]}">${x[0]}</span>`}
+function leiste(){const p=S.posts,w=p.filter(x=>x.status==='freigabe').length,d=p.filter(x=>x.status==='skript').length,o=S.offen.filter(x=>!x.erledigt).length;
+ const K=[['pass','freigabe',w,'warten auf Freigabe','#ff4005'],['pass','skript',d,'brauchen einen Dreh','#3b8bff'],['eroeffnung','',S.staedte.length,'Eröffnungen vorbereitet','#4f0423'],['offen','',o,'Fragen an Mmaah','#e0b800'],['zahlen','',S.tiktok.tage_seit_letztem,'Tage ohne TikTok','#ff4005',1]];
+ $('#leiste').innerHTML=K.map(([t,f,n,l,c,warn])=>`<button class="kz${warn?' warn':''}" onclick="${f?`filt='${f}';`:''}geh('${t}')"><span><i class="dot" style="--d:${c}"></i>${l}</span><b>${zahl(n)}</b></button>`).join('');
+ $('#nav').innerHTML=`<div class="innen"><div class="seg">${TAB.map(([k,l])=>{const n=k==='pass'?w:k==='offen'?o:0;return `<button aria-current="${tab===k?'page':'false'}" onclick="geh('${k}')">${l}${n?`<i>${n}</i>`:''}</button>`}).join('')}</div></div>`}
+function geh(k){tab=k;history.replaceState(null,'','#'+k);zeichne();const n=$('#nav');scrollTo({top:innerWidth>=900&&scrollY>n.offsetTop?n.offsetTop:0})}
+function medien(p){const a=p.asset;if(a&&/\.mp4$/.test(a))return`<div class="medien"><video src="${pfad(a)}#t=1.6" controls playsinline preload="metadata"></video></div>`;
+ if(a)return`<div class="medien"><img src="${pfad(a)}" alt="Motiv ${esc(p.hook)}" loading="lazy"></div>`;
+ if(p.dreh)return`<div class="medien"><div class="leer"><b><i class="dot" style="--d:#3b8bff"></i>Dreh fehlt</b><ul>${p.dreh.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>`;
+ return`<div class="medien"><div class="leer"><b><i class="dot" style="--d:#d4a106"></i>Wird gebaut</b>Sobald die Daten da sind.</div></div>`}
+function bon(p,i){const f=p.freigabe;
+ return `<article class="bon" style="--i:${Math.min(i,14)}" id="b-${p.id}">${medien(p)}<div class="kb">
+ <div class="bonkopf mono"><span>Beitrag ${esc(p.id)}</span><span>${datum(p.datum)} · ${esc(p.zeit)}</span></div>
+ <div class="tags"><span class="serie">${esc(p.serie)}</span><span class="mono">${esc(p.format)}</span>${st(p.status)}</div>
+ <h3 class="hook">${esc(p.hook)}</h3>
+ ${p.status==='freigegeben'?`<p class="ok"><i class="dot" style="--d:#1f9d55"></i>Freigegeben von ${esc(f?.wer)}${f?.wann?` · ${esc(f.wann)}`:''}</p>`:''}
+ ${p.status==='ueberarbeiten'?`<p class="ok neu"><i class="dot" style="--d:#3b8bff"></i>Zurück an den Agenten${p.kommentar?.wer?` · ${esc(p.kommentar.wer)}`:''}</p>`:''}
+ <p class="cap">${esc(p.caption)}</p>
+ ${p.hinweis?`<p class="hint">${esc(p.hinweis)}</p>`:''}
+ ${p.kommentar?`<p class="hint">Kommentar: ${esc(p.kommentar.text)}</p>`:''}
+ <p class="alt">Store: ${esc(p.store)} · Ziel: ${esc(p.ziel)}</p>
+ <details><summary>Skript und andere Hooks</summary><ul style="margin:8px 0;padding-left:18px;font-size:13px;color:var(--ink2)">${(p.skript||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="alt">Getestete Alternativen: ${(p.hooks_alt||[]).map(esc).join(' / ')}</p></details>
+ ${aktionen(p)}</div></article>`}
+function aktionen(p){if(p.status==='freigabe')return`<div class="knopf"><button class="btn ja" onclick="frei('${p.id}')">Freigeben</button><button class="btn nein" onclick="ablehn('${p.id}')">Ändern</button></div>`;
+ if(p.status==='freigegeben'||p.status==='ueberarbeiten')return`<div class="knopf"><button class="btn nein" onclick="zurueck('${p.id}')">Zurücknehmen</button></div>`;return''}
+function wechsel(p,n){Object.assign(S.posts.find(x=>x.id===p),n);zeichne()}
+async function frei(id){const w=name();if(!w){toast('Bitte zuerst oben deinen Namen eintragen.');$('#wer')?.focus();return}
+ const r=await post('/api/post',{id,aktion:'freigeben',wer:w});wechsel(id,r||{status:'freigegeben',freigabe:{wer:w,wann:'Vorschau'}});toast('Freigegeben. Der Agent plant das ein.')}
+async function ablehn(id){const w=name();if(!w){toast('Bitte zuerst oben deinen Namen eintragen.');$('#wer')?.focus();return}const t=prompt('Was soll anders werden?');if(t===null)return;
+ const r=await post('/api/post',{id,aktion:'ablehnen',wer:w,text:t});wechsel(id,r||{status:'ueberarbeiten',kommentar:{wer:w,text:t}})}
+async function zurueck(id){const r=await post('/api/post',{id,aktion:'zurueck'});wechsel(id,r||{status:'freigabe',freigabe:null})}
+function vPass(){const P=S.posts,zaehl=k=>P.filter(k).length;const F=[['freigabe','Freigabe'],['skript','Dreh fehlt'],['wartet','Wartet auf Daten'],['freigegeben','Freigegeben'],['ueberarbeiten','Überarbeiten'],['alle','Alle']];
+ const L=P.filter(x=>filt==='alle'||x.status===filt);
+ return `<div class="h"><div><h2>Der Pass</h2><p class="hin">Jeder Beitrag wartet hier auf dein Ja. Du gibst frei, der Agent plant ein. Die erste Runde ist ein Vorschlag vom 06.11.2026 für 09.11. bis 08.12.2026, geprüft mit dem Prüf Werkzeug, noch von niemandem bei Mmaah gesehen.</p></div></div>
+ <label class="wer">Wer gibt frei? <input id="wer" value="${esc(name())}" placeholder="Dein Name" oninput="localStorage.setItem('mm-wer',this.value)"></label>
+ <div class="chips">${F.map(([k,l])=>`<button class="chip" aria-pressed="${filt===k}" onclick="filt='${k}';zeichne()">${l}<small>${k==='alle'?P.length:zaehl(x=>x.status===k)}</small></button>`).join('')}</div>
+ <div class="bons">${L.map(bon).join('')||'<p class="hin">Nichts in dieser Spalte.</p>'}</div>`}
+function vPlan(){const W={};for(const p of S.posts){const d=new Date(p.datum+'T12:00');const m=new Date(d);m.setDate(d.getDate()-((d.getDay()+6)%7));const k=m.toISOString().slice(0,10);(W[k]=W[k]||{})[((d.getDay()+6)%7)]=p}
+ const T=['Mo','Di','Mi','Do','Fr','Sa','So'];
+ return `<div class="h"><div><h2>Der Plan</h2><p class="hin">Lustig, Laden, Essen, jede Woche. Zeiten sind Hypothesen aus der Abendspitze, nach 8 Wochen wird nachgemessen. Antippen öffnet den Beitrag.</p></div></div>`+Object.entries(W).map(([k,t])=>`<section class="woche"><h3>Woche ab ${datum(k)}</h3><div class="tage">${T.map((_,i)=>{const p=t[i];if(!p)return window.innerWidth>820?'<div></div>':'';return`<button class="tagb" onclick="offne('${p.id}')"><small>${datum(p.datum)} · ${esc(p.zeit)}<br>${esc(p.serie)}</small><b>${esc(p.hook)}</b>${st(p.status)}</button>`}).join('')}</div></section>`).join('')}
+function offne(id){const p=S.posts.find(x=>x.id===id);$('#dlgi').innerHTML=`<div style="padding:12px">${bon(p,0)}</div>`;dlg.showModal()}
+function zoom(u){$('#dlgi').innerHTML=`<img src="${u}" alt="Plakat groß">`;dlg.showModal()}
+function vEroeff(){const s=S.staedte[stadt];const ph={};for(const a of s.aufgaben)(ph[a.phase]=ph[a.phase]||[]).push(a);const fertig=s.aufgaben.filter(a=>a.status==='erledigt').length;
+ return `<div class="chips">${S.staedte.map((x,i)=>`<button class="chip" aria-pressed="${i===stadt}" onclick="stadt=${i};zeichne()">${esc(x.stadt)}</button>`).join('')}</div>
+ <section class="stadt"><h2>${esc(s.stadt)}</h2><p>${esc(s.adresse)}, ${esc(s.plz)}. ${s.datum?'Termin '+datum(s.datum):'<span class="warn">Termin fehlt.</span> Website sagt: '+esc(s.status_website||'')}</p><p>Stadt Witz: ${esc(s.witz)}</p><p class="mono" style="margin-top:14px">${fertig} von ${s.aufgaben.length} Aufgaben erledigt</p><div class="fort"><i style="width:${100*fertig/Math.max(1,s.aufgaben.length)}%"></i></div></section>
+ ${(s.warnungen||[]).map(w=>`<p class="meldung">${esc(w)}</p>`).join('')}${s.anreiz_bestaetigt?'':'<p class="meldung">Anreiz noch nicht bestätigt. Plakat E7 bleibt Entwurf.</p>'}
+ <h3 class="zw">Plakate A2</h3><div class="wand">${s.plakate.map(p=>`<button onclick="zoom('${pfad(p)}')" aria-label="Plakat groß zeigen"><img src="${pfad(p)}" alt="${esc(p.split('/').pop())}" loading="lazy"></button>`).join('')}</div>
+ <div class="spalten"><div><h3 class="zw">Reel und Social</h3>${s.reels.map(r=>`<video src="${pfad(r)}#t=1.6" controls playsinline preload="metadata"></video>`).join('')}
+ <div class="wand mini4" style="grid-template-columns:repeat(4,1fr);gap:6px">${s.social.map(p=>`<button onclick="zoom('${pfad(p)}')" aria-label="Motiv groß zeigen"><img src="${pfad(p)}" alt="" loading="lazy"></button>`).join('')}</div>
+ <div class="reihe">${s.pdf.map(p=>`<a href="${pfad(p)}" target="_blank" rel="noopener">${esc(p.split('/').pop().match(/E\d/)?.[0]||'PDF')} PDF</a>`).join('')}</div>${s.creator?`<p class="hin">Creator in der Datenbank: ${s.creator.gesamt}, davon Food und Gastro ${s.creator.food}.${s.creator.food<15?' Zu wenig, Recherche in der Stadt nötig.':''}</p>`:''}</div>
+ <div><h3 class="zw">Fahrplan, ${s.datum?'mit Kalendertagen':'relativ zu T'}</h3>${Object.entries(ph).map(([n,l])=>`<div class="ph">${esc(n)}</div><ul class="aufg">${l.map(a=>`<li class="${a.status==='erledigt'?'fertig':''}"><input type="checkbox" ${a.status==='erledigt'?'checked':''} aria-label="Erledigt" onchange="hak('${a.id}',this.checked)"><div><p>${esc(a.aufgabe)}</p><span class="art ${a.art}">${a.art==='agent'?'Agent':a.art==='mensch'?'Mensch':'Freigabe'}</span><span class="mono">${esc(a.wann)}${a.ueberfaellig?' · überfällig':''}${a.mensch?' · '+esc(a.mensch):''}</span></div></li>`).join('')}</ul>`).join('')}</div></div>`}
+async function hak(id,e){const r=await post('/api/aufgabe',{id,erledigt:e,wer:name()});for(const s of S.staedte){const a=s.aufgaben.find(x=>x.id===id);if(a)a.status=e?'erledigt':'offen'}if(r||STATIC)zeichne()}
+function vbars(L){const m=Math.max(...L.map(x=>x.w));return`<div class="vbars" role="img" aria-label="Balken">${L.map(x=>`<div tabindex="0" class="${x.an?'an':''}" style="height:${100*x.w/m}%" data-tip="${esc(x.tip)}">${x.lab?`<u>${esc(x.lab)}</u>`:''}</div>`).join('')}</div><div class="xachse">${L.map(x=>`<span>${esc(x.x)}</span>`).join('')}</div>`}
+function vZahlen(){const t=S.tiktok;const K=S.kasse;
+ let h=`<div class="h"><div><h2>Zahlen</h2><p class="hin">Öffentliche Zahlen TikTok, Abruf ${esc(t.abruf)}. Instagram Insights fehlen, Zugang nötig.</p></div></div><div class="kz3"><div><b>${zahl(t.median_views)}</b><span>Median Views je Video, ${t.videos} Videos</span></div><div><b>${t.top10_anteil_pct} %</b><span>aller Views aus den 10 besten</span></div><div><b style="color:var(--o)">${t.tage_seit_letztem}</b><span>Tage seit dem letzten Post</span></div></div>`;
+ if(!K)return h+'<div class="tafel"><h3>Kassenzahlen bleiben lokal</h3><p>Auswertung je Wochentag, Stunde, Kanal und Store liegt nur auf dem Agent Rechner.</p></div>';
+ const W=Object.entries(K.woche),mo=K.woche.Mo.je_tag,so=K.woche.So.je_tag;const St=Object.entries(K.stunden).filter(([a])=>+a>=11&&+a<=22);const ab=['17','18','19','20'].reduce((s,x)=>s+(K.stunden[x]||0),0);
+ const kg=Object.entries(K.kanal_gruppen).sort((a,b)=>b[1]-a[1]);const pot=K.stores['Potsdam Bahnhofsviertel']?.wochen_tagesschnitt||[];
+ h+=`<p class="meldung">Vertraulich. Kasse ${esc(K.kennung)}: 21 Standorte, nur Winterquartal, neuere Stores fehlen. Nie in Posts oder online.</p><div class="grid2" style="margin-top:14px">
+ <section class="tafel"><h3>Montag macht ${Math.round(100*(1-mo/so))} % weniger als Sonntag</h3><p>Umsatz netto je Store und Tag, in Euro</p>${vbars(W.map(([k,v],i)=>({x:k,w:v.je_tag,an:i<3,lab:(i===0||i===6)?zahl(v.je_tag):'',tip:`${k}: ${zahl(v.je_tag)} €, ${v.bons} Bons, Bon ${v.bon} €`})))}</section>
+ <section class="tafel"><h3>${Math.round(ab)} % vom Umsatz zwischen 17 und 21 Uhr</h3><p>Anteil am Umsatz je Stunde, in Prozent</p>${vbars(St.map(([k,v])=>({x:k,w:v,an:+k>=17&&+k<=20,lab:k==='18'?v+' %':'',tip:`${k} Uhr: ${v} %`})))}</section>
+ <section class="tafel"><h3>Die App macht ${K.kanal_gruppen['Mobile App']} % vom Umsatz</h3><p>Anteil je Kanal in Prozent. Was OA Take-Away ist, muss Mmaah klären.</p>${kg.map(([k,v])=>`<div class="hbar ${k==='Mobile App'?'an':''}"><span>${esc(k)}</span><span><i style="width:${Math.max(.6,v/kg[0][1]*100)}%"></i></span><b>${v}</b></div>`).join('')}</section>
+ <section class="tafel"><h3>Potsdam fällt von Woche 2 bis 8 um ${pot[1]?Math.round(100*(1-pot[7]/pot[1])):0} %</h3><p>Tagesumsatz im Schnitt je Woche nach Eröffnung am 31.01.2026, in Euro</p>${vbars(pot.map((v,i)=>({x:'W'+(i+1),w:v,an:i===1||i===7,lab:(i===1||i===7)?zahl(v):'',tip:`Woche ${i+1}: ${zahl(v)} € je Tag`})))}</section></div>
+ <h3 class="zw" style="margin-top:28px">Stores</h3><div class="tafel scroll"><table class="tab"><thead><tr><th>Store</th><th>€ je Tag</th><th class="r">Bon €</th><th class="r">Rabatt %</th><th>Schwach</th><th>Stark</th><th class="r">Spanne %</th></tr></thead><tbody>${Object.entries(K.stores).sort((a,b)=>b[1].je_tag-a[1].je_tag).map(([k,v])=>`<tr><td>${esc(k)}</td><td><span class="mini" style="width:${v.je_tag/40}px"></span><span class="mono">${zahl(v.je_tag)}</span></td><td class="r">${v.bon}</td><td class="r">${v.rabatt_pct}</td><td>${esc((v.schwach||[]).join(', '))}</td><td>${esc(v.stark)}</td><td class="r">${v.spanne_pct??''}</td></tr>`).join('')}</tbody></table></div>`;return h}
+function vOffen(){const O=S.offen,g={};for(const x of O)(g[x.gruppe]=g[x.gruppe]||[]).push(x);const f=O.filter(x=>x.erledigt).length;
+ return `<div class="h"><div><h2>Was der Agent von Mmaah braucht</h2><p class="hin">${f} von ${O.length} geklärt. Der Agent rät hier nicht, er wartet.</p></div></div><div class="fort" style="margin:0 0 6px"><i style="width:${100*f/O.length}%"></i></div>`+Object.entries(g).map(([n,l])=>`<div class="grp">${esc(n)}<span class="mono">${l.filter(x=>!x.erledigt).length} offen</span></div><div class="liste">${l.map(x=>`<label class="frage"><input type="checkbox" ${x.erledigt?'checked':''} onchange="offenHak('${x.id}',this.checked)"><div><p>${esc(x.frage)}</p><small>${esc(x.warum)} Zuständig: ${esc(x.wer)}.</small></div></label>`).join('')}</div>`).join('')}
+async function offenHak(id,e){await post('/api/offen',{id,erledigt:e});S.offen.find(x=>x.id===id).erledigt=e;zeichne()}
+function zeichne(){leiste();const v={pass:vPass,plan:vPlan,eroeffnung:vEroeff,zahlen:vZahlen,offen:vOffen}[tab];$('#m').innerHTML=v()}
+const tip=$('#tip');document.addEventListener('pointermove',e=>{const t=e.target.closest?.('[data-tip]');if(t){tip.textContent=t.dataset.tip;tip.style.display='block';tip.style.left=Math.min(innerWidth-90,Math.max(90,e.clientX))+'px';tip.style.top=e.clientY+'px'}else tip.style.display='none'});
+document.addEventListener('focusin',e=>{const t=e.target.closest?.('[data-tip]');if(t){const r=t.getBoundingClientRect();tip.textContent=t.dataset.tip;tip.style.display='block';tip.style.left=Math.min(innerWidth-90,Math.max(90,r.left+r.width/2))+'px';tip.style.top=r.top+'px'}});
+document.addEventListener('focusout',()=>tip.style.display='none');
+if(!STATIC&&window.top===window){const c=new AbortController();fetch('/api/katalog',{signal:c.signal}).then(r=>{if(r.ok)$('#zuIntern').hidden=false;c.abort()}).catch(()=>{})} // Link nur dort, wo der Intern Bereich auch läuft
+if(STATIC)$('#vorschau').innerHTML='<div class="vorschau">Vorschau ohne Kassenzahlen. Freigaben werden hier nicht gespeichert.</div>';
+laden();
+</script></body></html>
